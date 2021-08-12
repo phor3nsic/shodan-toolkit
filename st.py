@@ -18,9 +18,11 @@ def shodan_search(queryes, api_key):
                 if services['ip_str'] not in hosts:
                     if ":" not in services['ip_str']: # NOT GET IPV6
                         hosts.append(services['ip_str'])
-                        print(services['ip_str'])
         except:
             pass
+
+    for host in hosts:
+        print(host)
 
 def ssl_mode(domain, api_key):
     queryes = ["ssl:"+domain, "ssl.cert.subject.CN:"+domain]
@@ -41,10 +43,9 @@ def main():
     parser.add_argument("-d", "--domain", help="Domain for search")
     parser.add_argument("-u", "--url", help="Url")
     parser.add_argument("-ssl","--ssl", help="SSL Search", action="store_true")
-    parser.add_argument("-favicon","--favicon", help="Favicon Mode default=False", action="store_true")
-    parser.add_argument("-ipv6", "--ipv6", help="IPV6 accepted", action="store_true")
+    parser.add_argument("-favicon","--favicon", help="Favicon Mode", action="store_true")
     args = parser.parse_args()
-    IPV6 = False
+
     if args.ssl == True:
         if args.domain:
             ssl_mode(args.domain, args.api_key)
@@ -56,9 +57,6 @@ def main():
             favicon_mode(args.url, args.api_key)
         else:
             print("[!] Error: it's necessary to use -u/--url")
-
-    if args.ipv6 == True:
-        IPV6 = True
 
 if __name__ == "__main__":
     main()

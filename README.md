@@ -18,7 +18,7 @@ pip3 -r requirements.txt
 
 ### Help
 ```
-python3 st.py [-h] -k API_KEY [-d DOMAIN] [-u URL] [-ssl] [-favicon] [-ipv6]
+python3 st.py [-h] -k API_KEY [-d DOMAIN] [-u URL] [-ssl] [-favicon]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -28,19 +28,7 @@ optional arguments:
                         Domain for search
   -u URL, --url URL     Url
   -ssl, --ssl           SSL Search
-  -favicon, --favicon   Favicon Mode default=False
-  -ipv6, --ipv6         IPV6 accepted
-```
--- FAVICON
-
-```
-python3 st.py -u https://twitter.com/favicon.ico -k 96XABC123444CCADASDGG... -favicon
-
-27.120.102.97
-188.165.80.13
-101.37.170.108
-104.244.42.198
-...
+  -favicon, --favicon   Favicon Mode
 ```
 
 -- SSL
@@ -56,3 +44,16 @@ python3 st.py -d twitter.com -k 96XABC123444CCADASDGG... -ssl
 
 ...
 ```
+
+-- FAVICON
+
+```
+python3 st.py -u https://twitter.com/favicon.ico -k 96XABC123444CCADASDGG... -favicon
+
+27.120.102.97
+188.165.80.13
+101.37.170.108
+104.244.42.198
+...
+```
+
